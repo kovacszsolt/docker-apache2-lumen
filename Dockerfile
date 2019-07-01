@@ -16,6 +16,7 @@ RUN apt-get install mysql-client -y
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+RUN ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 COPY .bashrc /root/.bashrc
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN composer global require laravel/lumen-installer
